@@ -1,0 +1,68 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/polymer-signals/polymer-signals.html">
+
+<polymer-element name="rsac-toc" on-click="{{toggleToc}}">
+  <template>
+    <style>
+      [unresolved] {
+        opacity: 0;
+        /* other custom styles for unresolved elements */
+      }
+      div#toc {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #444; 
+        z-index:200;
+      }
+      rsac-toc.minimized div#toc {
+        height: 100px;
+      }
+    </style>
+    <div id="toc">
+      <content id="chapters"></content>
+    </div>
+  </template>
+  <script>
+    Polymer('rsac-toc', {
+
+      toggleMinimizedState: function() {
+        this.classList.toggle('minimized');
+      },
+
+      toggleToc: function(e, detail, sender) {
+        var url = e.target.href;
+        var self = this;
+        var chapters = self.querySelectorAll('rsac-chapter');
+
+        if(!e.target.classList.contains('active')) {
+
+          // publish a chapter changed event
+          self.fire('polymer-signal', {name: "chapterchanged", data: url});
+          
+          self.toggleMinimizedState();
+          e.target.classList.toggle('active');
+
+          //iterate through each chapter element and add set an out class.
+          [].forEach.call(chapters, function(el, i) {
+
+            if(!el.classList.contains('active')) {
+              el.classList.add('out');
+            }
+
+          });
+        } else {
+
+          //clear all classes from chapters
+          [].forEach.call(chapters, function(el, i) {
+
+            el.classList.remove('active');
+            el.classList.remove('out');
+          });
+          self.toggleMinimizedState();
+        }
+
+      }
+    }) ;
+  </script>
+</polymer-element>

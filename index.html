@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;rsac-toc&gt;</title>
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:100,400' rel='stylesheet' type='text/css'>
+    <style>
+      html, body {
+        margin:0;
+      } 
+    </style>
+
+    <!-- Importing Web Component's Polyfill -->
+    <script src="bower_components/platform/platform.js"></script>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="bower_components/rsac-toc/rsac-toc.html">
+    <link rel="import" href="bower_components/rsac-chapter/rsac-chapter.html">
+    <link rel="import" href="bower_components/rsac-showcase/rsac-showcase.html">
+</head>
+<body>
+
+    <!-- Using Custom Elements -->
+    <rsac-toc>
+      <rsac-chapter src="img/chapter1.jpg"
+                    href="http://google.com"
+                    altText="Trees on public lands">
+                    Where do trees grow and why?
+      </rsac-chapter>
+
+      <rsac-chapter src="img/chapter2.jpg"
+                    href="http://localhost:9000/chapter2/"
+                    altText="Bears in their natural habitat">
+                    What lives in the forest?
+      </rsac-chapter>
+
+      <rsac-chapter src="img/chapter3.jpg"
+                    href="http://localhost:9000"
+                    altText="">
+                    What shapes the forest?
+      </rsac-chapter>
+
+      <rsac-chapter color="#138F4D"
+                    href="http://localhost:9000"
+                    altText="">
+                    How do we benefit from forests?
+      </rsac-chapter>
+
+      <rsac-chapter color="#8AC246"
+                    href="http://localhost:9000"
+                    altText="">
+                    Our future forests
+      </rsac-chapter>
+
+    </rsac-toc>
+
+    <rsac-showcase></rsac-showcase>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "rsac-toc",
+  "version": "0.0.0",
+  "description": "RSAC Table of Contents web component",
+  "authors": [
+    "Jim Wharton"
+  ],
+  "license": "MIT",
+  "main": "rsac-toc.html",
+  "keywords": [
+    "web-components"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "platform": "Polymer/platform#~0.2.3",
+    "polymer": "Polymer/polymer#~0.2.3",
+    "polymer-signals": "Polymer/polymer-signals#~0.2.3"
+  }
+}
